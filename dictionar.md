@@ -47,3 +47,10 @@ De fiecare dată când modific dicționarul, fac 3 pași:
 - Sunt sisteme separate! Fiecare are propriul `~/.bashrc` și propriile aliasuri.
 - Ce fac într-un sistem, nu se reflectă automat în celălalt.
 - Pentru a sincroniza codul între ele, folosesc GitHub-ul: fac `gp` pe unul, iar pe celălalt fac `git pull`. 
+## 8. Operatori în Terminal (Pipe si AND)
+- `|` (Pipe): Trimite rezultatul comenzii din stânga ca input pentru comanda din dreapta.
+  - Exemplu: `cat server.log | grep "ERROR"` (filtreaza textul).
+- `&&` (AND): Executa comanda din dreapta DOAR DACA comanda din stanga a reusit (a avut succes).
+  - Exemplu: `cd /my_linux && git push` (daca intrarea in folder a reusit, atunci trimite pe Git).
+  - Daca prima comanda da eroare, a doua nu se mai executa.
+- ATENTIE la Git: Nu folosi `|` intre comenzile Git (ex: `ga | gc`), foloseste `&&` (ex: `ga && gc "mesaj" && gp`).
