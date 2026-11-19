@@ -15,3 +15,8 @@
 ## 3. Rețea (Cum vorbesc cu alte calculatoare?)
 - `nmap 127.0.0.1` = scanez porturile locale (ce usi sunt deschise).
 - `nc -l -p 1234` = deschid o usa (port) si ascult.
+## 4. Variabile si Aliasuri (Cum scurtez comenzile)
+- `echo $USER` = imi arata numele de utilizator.
+- `echo $HOME` = imi arata unde e folderul principal.
+- `alias salut="echo 'Salut'"` = creez o comanda noua numita "salut".
+- `alias ll="ls -la"` = daca scriu "ll", ruleaza automat "ls -la".
