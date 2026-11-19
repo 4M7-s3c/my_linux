@@ -72,3 +72,15 @@ Deși ambele scurtează comenzile, ele funcționează diferit:
   - Când scriu `cauta "git"`, funcția ia cuvântul "git" ca prim argument (`$1`) și îl folosește în comandă.
 
 **Concluzie:** Dacă vrei doar să scurtezi o comandă simplă, folosește `alias`. Dacă vrei să creezi o comandă nouă care să primească date de la tine, folosește o `funcție`.
+## 10. Descompunerea funcției `cauta` (Bucată cu bucată)
+
+Funcția:
+`cauta() { grep -i --color=auto "$1" ~/my_linux/dictionar.md; }`
+
+- `cauta()` = Numele funcției. Parantezele goale sunt obligatorii, ele îi spun lui Bash că e o funcție, nu o variabilă.
+- `{ ... }` = Acoladele. Ele delimitează începutul și sfârșitul „rețetei” (blocul de cod).
+- `grep` = Comanda care face treaba (caută text).
+- `-i` = Opțiunea care ignoră majusculele/minusculele.
+- `--color=auto` = Opțiunea care colorează cuvântul căutat.
+- `"$1"` = Primul argument (cuvântul pe care îl scrii după comandă). Ghilimelele duble sunt esențiale pentru a păstra textul ca un singur șir (ex: "git push").
+- `~/my_linux/dictionar.md` = Fișierul țintă (calea absolută, ca să meargă din orice folder).
