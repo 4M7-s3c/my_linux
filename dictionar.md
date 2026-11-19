@@ -37,3 +37,13 @@ Exemplu: chmod 755 = Proprietar (rwx), Grup (r-x), Restul (r-x).
 ## 5. Aliasuri permanente
 - `nano ~/.bashrc` = deschid fisierul de configurare.
 - `source ~/.bashrc` = aplic modificarile fara sa inchid terminalul.
+## 6. Fluxul de lucru Git (Cum salvez pe GitHub)
+De fiecare dată când modific dicționarul, fac 3 pași:
+- `ga` = (git add .) Adaug toate modificările.
+- `gc "Mesajul meu"` = (git commit -m) Salvez modificările cu un mesaj clar.
+- `gp` = (git push) Trimit totul pe GitHub.
+
+## 7. Termux vs Ubuntu (Atenție la confuzii!)
+- Sunt sisteme separate! Fiecare are propriul `~/.bashrc` și propriile aliasuri.
+- Ce fac într-un sistem, nu se reflectă automat în celălalt.
+- Pentru a sincroniza codul între ele, folosesc GitHub-ul: fac `gp` pe unul, iar pe celălalt fac `git pull`. 
