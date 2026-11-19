@@ -6,6 +6,7 @@
 - `chmod 755` = eu pot face orice, ceilalti doar sa citeasca si sa ruleze.
 - **SUID** (`chmod 4755`) = fisierul ruleaza cu puterile altui utilizator (ex: bandit24).
 - 'chmod +w numele_fisierului' ii dai drept de scriere fisierului
+- 'sudo -u numele_utilizatorului comanda' poti citi fisierul ca fiind utilizatorul
 - ## Tabel permisiuni (chmod)
 - 0 = --- (Nimic)
 - 1 = --x (Executare)
