@@ -5,6 +5,18 @@
 - `chmod 777` = dau voie la toata lumea sa faca orice (PERICULOS).
 - `chmod 755` = eu pot face orice, ceilalti doar sa citeasca si sa ruleze.
 - **SUID** (`chmod 4755`) = fisierul ruleaza cu puterile altui utilizator (ex: bandit24).
+- 'chmod +w numele_fisierului' ii dai drept de scriere fisierului
+- ## Tabel permisiuni (chmod)
+- 0 = --- (Nimic)
+- 1 = --x (Executare)
+- 2 = -w- (Scriere)
+- 3 = -wx (Scriere + Executare)
+- 4 = r-- (Citire)
+- 5 = r-x (Citire + Executare)
+- 6 = rw- (Citire + Scriere)
+- 7 = rwx (Citire + Scriere + Executare)
+
+Exemplu: chmod 755 = Proprietar (rwx), Grup (r-x), Restul (r-x).
 
 ## 2. Cautare (Unde e fisierul/cuvantul?)
 - `grep "cuvant" fisier.txt` = cauta un cuvant in text.
@@ -20,6 +32,7 @@
 - `echo $HOME` = imi arata unde e folderul principal.
 - `alias salut="echo 'Salut'"` = creez o comanda noua numita "salut".
 - `alias ll="ls -la"` = daca scriu "ll", ruleaza automat "ls -la".
+- 'alias dic='nano ~/my_linux/dictionar.md'' deschide direct dictionar.md
 ## 5. Aliasuri permanente
 - `nano ~/.bashrc` = deschid fisierul de configurare.
 - `source ~/.bashrc` = aplic modificarile fara sa inchid terminalul.
