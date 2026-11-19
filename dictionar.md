@@ -20,3 +20,6 @@
 - `echo $HOME` = imi arata unde e folderul principal.
 - `alias salut="echo 'Salut'"` = creez o comanda noua numita "salut".
 - `alias ll="ls -la"` = daca scriu "ll", ruleaza automat "ls -la".
+## 5. Aliasuri permanente
+- `nano ~/.bashrc` = deschid fisierul de configurare.
+- `source ~/.bashrc` = aplic modificarile fara sa inchid terminalul.
