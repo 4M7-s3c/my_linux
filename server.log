@@ -1,0 +1,6 @@
+2023-10-25 10:00:01 ERROR user_admin Login failed from 192.168.1.5
+2023-10-25 10:01:15 INFO user_guest Page loaded
+2023-10-25 10:02:00 ERROR user_root Access denied from 10.0.0.2
+2023-10-25 10:03:30 INFO user_admin Password changed
+2023-10-25 10:04:12 WARNING user_guest Session timeout
+2023-10-25 10:05:00 ERROR user_admin Login failed from 172.16.0.1

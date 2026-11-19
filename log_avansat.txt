@@ -1,0 +1,6 @@
+IP: 192.168.1.1 | User: admin | Status: OK
+IP: 10.0.0.5 | User: guest | Status: FAIL
+IP: 172.16.0.2 | User: root | Status: OK
+IP: 192.168.1.1 | User: admin | Status: OK
+IP: 10.0.0.5 | User: hack3r | Status: FAIL
+IP: 8.8.8.8 | User: dns | Status: OK
