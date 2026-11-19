@@ -54,3 +54,21 @@ De fiecare dată când modific dicționarul, fac 3 pași:
   - Exemplu: `cd /my_linux && git push` (daca intrarea in folder a reusit, atunci trimite pe Git).
   - Daca prima comanda da eroare, a doua nu se mai executa.
 - ATENTIE la Git: Nu folosi `|` intre comenzile Git (ex: `ga | gc`), foloseste `&&` (ex: `ga && gc "mesaj" && gp`).
+## 9. Alias vs Funcție în Bash (Diferența crucială)
+
+Deși ambele scurtează comenzile, ele funcționează diferit:
+
+- **Aliasul** este o simplă înlocuire de text. Nu poate primi argumente (precum un cuvânt pe care vrei să îl cauți).
+  - Exemplu: `alias ll='ls -la'` (când scriu `ll`, rulează `ls -la`).
+  - *De ce a eșuat `gitpush "mesaj"`?* Pentru că aliasul nu știe să preia textul dintre ghilimele ca argument.
+
+- **Funcția** este un mini-program care poate primi argumente. Se folosește când vrei să transmiți date (ex: `$1`).
+  - Exemplu: 
+    ```bash
+    cauta() {
+        grep -i --color=auto "$1" ~/my_linux/dictionar.md
+    }
+    ```
+  - Când scriu `cauta "git"`, funcția ia cuvântul "git" ca prim argument (`$1`) și îl folosește în comandă.
+
+**Concluzie:** Dacă vrei doar să scurtezi o comandă simplă, folosește `alias`. Dacă vrei să creezi o comandă nouă care să primească date de la tine, folosește o `funcție`.
