@@ -84,3 +84,20 @@ Funcția:
 - `--color=auto` = Opțiunea care colorează cuvântul căutat.
 - `"$1"` = Primul argument (cuvântul pe care îl scrii după comandă). Ghilimelele duble sunt esențiale pentru a păstra textul ca un singur șir (ex: "git push").
 - `~/my_linux/dictionar.md` = Fișierul țintă (calea absolută, ca să meargă din orice folder).
+## 11. Criptarea fișierelor cu GPG (Seif digital)
+
+Am creat un fișier securizat pentru parole folosind GPG. Algoritmul este atât de puternic încât, fără parola master, fișierul nu poate fi deschis.
+
+- **Criptare (punem parola):**
+  `gpg -c --pinentry-mode loopback ~/parole.txt`
+  *(Creează fișierul `parole.txt.gpg`. Opțiunea `loopback` este esențială în Termux ca să nu dea eroare de timeout).*
+
+- **Decriptare (citim parolele):**
+  `gpg -d --pinentry-mode loopback ~/parole.txt.gpg`
+  *(Ne cere parola master și ne afișează textul).*
+
+- **Aliasuri utile (le-am pus în .bashrc):**
+  `alias cripteaza='gpg -c --pinentry-mode loopback'`
+  `alias decripteaza='gpg -d --pinentry-mode loopback'`
+
+- **Regulă de aur:** Dacă uit parola master, pierd tot. Nu există „resetare parolă” la criptare!
