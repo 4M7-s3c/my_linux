@@ -111,12 +111,24 @@ Metodă de a ghici o parolă sau un PIN încercând toate combinațiile posibile
 `for i in {0000..9999}`
 `do`
 `    echo "$PAROLA $i"`
-`done | nc localhost 30002 | grep -v "Wrong"`
+`done | nc localhost hostul propriu-zis | grep -v "Wrong"`
 
 **Cum funcționează:**
 - `for i in {0000..9999}` = Buclă care generează toate numerele de la 0000 la 9999.
 - `echo "$PAROLA $i"` = Afișează parola și PIN-ul curent.
-- `| nc localhost 30002` = Trimite textul către serverul de pe portul 30002.
+- `| nc localhost host-ul propriu-zis` = Trimite textul către serverul de pe portul host propriu-zis.
 - `| grep -v "Wrong"` = Filtrează rezultatul, ascunzând răspunsurile greșite (opțiunea `-v` inversează căutarea). Astfel, va apărea doar răspunsul corect.
 
 **Sfat:** Întotdeauna rulați scripturile de brute-force în foldere precum `/tmp`, unde aveți permisiuni de scriere.
+## 13. Shell-uri limitate și SUID (Concepte generale)
+
+**1. Shell-uri limitate (Restricted Shells):**
+Uneori, un utilizator este configurat să ruleze un program în loc de un shell normal (precum `more`, `less`, `vi` sau un script simplu). Acest lucru împiedică execuția comenzilor.
+- **Cum verifici:** `grep utilizator /etc/passwd` (te uiți la ultima coloană, unde e trecut shell-ul).
+- **Cum evadezi:** Dacă programul are o funcție de tip „shell” sau „editor” (ex: în `vi` poți scrie `:shell` sau `:!bash`), poți scăpa de restricție.
+
+**2. Permisiunea SUID (Set User ID):**
+Un fișier cu SUID (permisiunea 4755) rulează cu privilegiile proprietarului său, nu ale utilizatorului care îl execută.
+- **Exemplu:** Dacă un executabil aparține lui `root` și are SUID, orice utilizator care îl rulează va executa comenzile ca și cum ar fi `root`.
+- **Cum cauți fișiere SUID:** `find / -perm -4000 -type f 2>/dev/null`
+- **Cum exploatezi:** Dacă găsești un astfel de executabil, îl poți folosi pentru a citi fișiere la care nu ai acces (ex: `./executabil cat /etc/parola`).
