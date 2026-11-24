@@ -132,3 +132,7 @@ Un fișier cu SUID (permisiunea 4755) rulează cu privilegiile proprietarului s�
 - **Exemplu:** Dacă un executabil aparține lui `root` și are SUID, orice utilizator care îl rulează va executa comenzile ca și cum ar fi `root`.
 - **Cum cauți fișiere SUID:** `find / -perm -4000 -type f 2>/dev/null`
 - **Cum exploatezi:** Dacă găsești un astfel de executabil, îl poți folosi pentru a citi fișiere la care nu ai acces (ex: `./executabil cat /etc/parola`).
+
+## 14. transfer de pe Pc pe telefon
+scp -P 8022 UTILIZATOR@IP_TELEFON:ghid.txt ~/
+scp -P 8022 UTILIZATOR@IP_TELEFON:locatia_lui_ghid ~/ghid
