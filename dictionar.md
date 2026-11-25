@@ -136,3 +136,6 @@ Un fișier cu SUID (permisiunea 4755) rulează cu privilegiile proprietarului s�
 ## 14. transfer de pe Pc pe telefon
 scp -P 8022 UTILIZATOR@IP_TELEFON:ghid.txt ~/
 scp -P 8022 UTILIZATOR@IP_TELEFON:locatia_lui_ghid ~/ghid
+## 15. Comenzi pentru procese
+- `ps aux` = Afișează toate procesele care rulează pe sistem (utilizator, PID, consum CPU/memorie, comandă).
+- `ps aux | sort -k3 -nr | head -n 5` = Afișează primele 5 procese sortate descrescător după consumul de CPU (coloana 3).
